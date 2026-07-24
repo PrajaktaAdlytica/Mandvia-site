@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="title">
+  <title id="title">Mandvia mandate gate</title>
+  <rect width="48" height="48" rx="9" fill="#164A3D"/>
+  <path d="M9 34V14h6l9 12 9-12h6v20h-6V23l-9 12-9-12v11H9Z" fill="#F7F6F1"/>
+  <path d="M3 24h13" stroke="#E85D45" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M32 24h13" stroke="#78D5D1" stroke-width="3.2" stroke-linecap="round"/>
+  <circle cx="24" cy="24" r="3" fill="#D89B42"/>
+</svg>
