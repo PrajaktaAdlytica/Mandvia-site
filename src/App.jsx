@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -91,10 +91,58 @@ const steps = [
   ["04", "Evidence", "The receipt and settlement become part of the same verifiable record.", FileCheck2],
 ];
 
+const siteMetadata = {
+  title: "Mandvia — Accountable agent payments",
+  description: "Mandvia is the control and evidence layer for autonomous software spend.",
+  canonical: "https://www.mandvia.com/",
+};
+
+const announcementMetadata = {
+  title: "Mandvia joins the TipHub portfolio",
+  description: "TipHub announces a $650K portfolio allocation to Mandvia, supporting its work across fintech and agent payments.",
+  canonical: "https://www.mandvia.com/news/tiphub-allocation",
+};
+
+function PageMetadata() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const metadata = location.pathname === "/news/tiphub-allocation" ? announcementMetadata : siteMetadata;
+    document.title = metadata.title;
+
+    const setMeta = (selector, attribute, value) => {
+      let element = document.head.querySelector(selector);
+      if (!element) {
+        element = document.createElement("meta");
+        const [name, propertyValue] = attribute;
+        element.setAttribute(name, propertyValue);
+        document.head.appendChild(element);
+      }
+      element.setAttribute("content", value);
+    };
+
+    setMeta('meta[name="description"]', ["name", "description"], metadata.description);
+    setMeta('meta[property="og:title"]', ["property", "og:title"], metadata.title);
+    setMeta('meta[property="og:description"]', ["property", "og:description"], metadata.description);
+    setMeta('meta[property="og:url"]', ["property", "og:url"], metadata.canonical);
+
+    let canonical = document.head.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute("href", metadata.canonical);
+  }, [location.pathname]);
+
+  return null;
+}
+
 function useScrollSystem() {
   const location = useLocation();
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
     const lenis = new Lenis({ smoothWheel: true, lerp: 0.085 });
     lenis.on("scroll", ScrollTrigger.update);
     const tick = (time) => lenis.raf(time * 1000);
@@ -108,6 +156,7 @@ function useScrollSystem() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
     const context = gsap.context(() => {
       gsap.utils.toArray("[data-reveal]").forEach((element) => {
         gsap.fromTo(
@@ -936,6 +985,101 @@ function EditorialPage({ type }) {
   );
 }
 
+const announcementFacts = [
+  ["Company", "Mandvia"],
+  ["Sector", "Fintech and agent payments"],
+  ["TipHub-announced allocation", "$650K"],
+  ["Stage", "Early stage"],
+  ["Scope", "Global"],
+  ["Portfolio", "TipHub"],
+];
+
+function TipHubAnnouncementPage() {
+  return (
+    <>
+      <main className="announcement-page">
+        <article>
+          <header className="announcement-hero">
+            <div className="announcement-hero-inner">
+              <div className="announcement-hero-copy" data-reveal>
+                <span className="announcement-eyebrow">Portfolio announcement</span>
+                <h1>TipHub announces a <em>$650K allocation</em> to Mandvia.</h1>
+                <p>
+                  Mandvia is joining the TipHub portfolio following a $650K TipHub-announced
+                  allocation. The partnership supports the company’s work across fintech and
+                  agent payments.
+                </p>
+                <div className="announcement-actions">
+                  <a
+                    className="button announcement-primary"
+                    href="https://tiphub-prototype-review.vercel.app/companies/mandvia"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Visit the official TipHub announcement for Mandvia"
+                  >
+                    Visit TipHub announcement <ArrowUpRight size={16} />
+                  </a>
+                  <a className="announcement-text-link" href="https://www.mandvia.com">
+                    Company website <ArrowRight size={15} />
+                  </a>
+                </div>
+              </div>
+              <div className="announcement-signal" aria-label="$650K TipHub-announced portfolio allocation" data-reveal>
+                <div className="announcement-signal-head"><span>Portfolio signal</span><strong>TipHub</strong></div>
+                <div className="announcement-signal-value"><small>Announced allocation</small><strong>$650K</strong></div>
+                <div className="announcement-signal-rail"><span /><i /><span /></div>
+                <dl>
+                  <div><dt>Category</dt><dd>Agent payments</dd></div>
+                  <div><dt>Scope</dt><dd>Global</dd></div>
+                  <div><dt>Status</dt><dd>Portfolio</dd></div>
+                </dl>
+              </div>
+            </div>
+          </header>
+
+          <section className="announcement-story">
+            <div className="announcement-story-grid">
+              <div className="announcement-body" data-reveal>
+                <span className="announcement-index">01 / Company note</span>
+                <h2>Focused infrastructure for accountable autonomy.</h2>
+                <p>
+                  We are building Mandvia to address an important operating problem within
+                  fintech and agent payments. TipHub’s early-stage, global perspective aligns
+                  with our ambition to turn a focused insight into durable infrastructure.
+                </p>
+                <p>
+                  The relationship extends beyond capital to company-building support across
+                  product, market development, talent, and future growth.
+                </p>
+              </div>
+
+              <aside className="announcement-facts" aria-label="Allocation facts" data-reveal>
+                <span className="announcement-index">02 / Facts</span>
+                <dl>
+                  {announcementFacts.map(([label, value]) => (
+                    <div key={label}><dt>{label}</dt><dd>{value}</dd></div>
+                  ))}
+                </dl>
+              </aside>
+            </div>
+          </section>
+
+          <section className="announcement-disclosure" data-reveal>
+            <span>Disclosure</span>
+            <p>
+              The allocation displayed is information supplied and announced by TipHub. It
+              does not independently represent the company’s total financing and may be
+              updated if an official company disclosure differs.
+            </p>
+            <Link to="/company">About Mandvia <ArrowRight size={15} /></Link>
+          </section>
+        </article>
+      </main>
+      <Footer />
+    </>
+  );
+}
+
 function Footer() {
   return (
     <footer className="site-footer" id="footer">
@@ -947,7 +1091,7 @@ function Footer() {
           <a className="footer-email" href="mailto:hello@mandvia.com"><Mail size={15} /> hello@mandvia.com</a>
         </div>
         <div><strong>Product</strong>{products.map((product) => <Link key={product.slug} to={`/product/${product.slug}`}>{product.name}</Link>)}</div>
-        <div><strong>Company</strong><Link to="/company">About</Link><Link to="/security">Security</Link><Link to="/pricing">Pricing</Link><Link to="/demo">Contact</Link></div>
+        <div><strong>Company</strong><Link to="/company">About</Link><Link to="/news/tiphub-allocation">Updates</Link><Link to="/security">Security</Link><Link to="/pricing">Pricing</Link><Link to="/demo">Contact</Link></div>
         <div><strong>Access & legal</strong><Link to="/signin">Sign in</Link><Link to="/demo">Request demo</Link><Link to="/privacy">Privacy</Link><Link to="/terms">Terms</Link></div>
       </div>
       <div className="footer-trust-row">
@@ -1020,6 +1164,7 @@ function Site() {
   const standalone = ["/signin", "/demo"].includes(location.pathname);
   return (
     <>
+      <PageMetadata />
       {!standalone && <Header />}
       <Routes>
         <AppRoute path="/" element={<CinematicHome />} />
@@ -1029,6 +1174,7 @@ function Site() {
         <AppRoute path="/pricing" element={<EditorialPage type="pricing" />} />
         <AppRoute path="/security" element={<EditorialPage type="security" />} />
         <AppRoute path="/company" element={<EditorialPage type="company" />} />
+        <AppRoute path="/news/tiphub-allocation" element={<TipHubAnnouncementPage />} />
         <AppRoute path="/privacy" element={<LegalPage type="privacy" />} />
         <AppRoute path="/terms" element={<LegalPage type="terms" />} />
         <AppRoute path="*" element={<Navigate to="/" replace />} />
@@ -1038,5 +1184,5 @@ function Site() {
 }
 
 export function App() {
-  return <Site />;
+  return <MotionConfig reducedMotion="user"><Site /></MotionConfig>;
 }

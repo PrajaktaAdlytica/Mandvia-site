@@ -134,6 +134,48 @@ function AboutSection() {
   );
 }
 
+function PortfolioAnnouncement() {
+  return (
+    <section className="portfolio-announcement" aria-labelledby="portfolio-announcement-title">
+      <motion.div className="cinematic-container portfolio-announcement-grid" {...reveal}>
+        <div className="portfolio-announcement-copy">
+          <SectionLabel>Portfolio announcement</SectionLabel>
+          <h2 id="portfolio-announcement-title">
+            TipHub announces a <em>$650K allocation</em> to Mandvia.
+          </h2>
+          <p>
+            Mandvia is joining the TipHub portfolio as it builds payment authorization,
+            spend controls, receipts, and settlement infrastructure for autonomous software
+            buyers.
+          </p>
+          <div className="portfolio-announcement-actions">
+            <Link className="portfolio-announcement-primary" to="/news/tiphub-allocation">
+              Read the announcement <ArrowRight size={16} />
+            </Link>
+            <a
+              className="portfolio-announcement-secondary"
+              href="https://tiphub-prototype-review.vercel.app/companies/mandvia"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Visit the official TipHub announcement for Mandvia"
+            >
+              Visit TipHub <ArrowUpRight size={15} />
+            </a>
+          </div>
+        </div>
+        <div className="portfolio-allocation" aria-label="$650K TipHub-announced portfolio allocation">
+          <div className="portfolio-allocation-top"><span>Allocation signal</span><strong>TipHub portfolio</strong></div>
+          <div className="portfolio-allocation-value"><small>TipHub-announced allocation</small><strong>$650K</strong></div>
+          <div className="portfolio-allocation-path" aria-hidden="true"><i /><span /><i /></div>
+          <div className="portfolio-allocation-meta">
+            <span>Fintech</span><span>Agent payments</span><span>Global</span>
+          </div>
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
 const problemSignals = [
   {
     index: "01",
@@ -877,6 +919,7 @@ function CinematicFooter() {
           <div className="cinematic-footer-column">
             <strong>Company</strong>
             <Link to="/company">About</Link>
+            <Link to="/news/tiphub-allocation">Updates</Link>
             <Link to="/security">Security</Link>
             <Link to="/demo">Contact</Link>
             <Link to="/signin">Sign in</Link>
@@ -953,6 +996,7 @@ export function CinematicHome() {
         </div>
       </section>
       <AboutSection />
+      <PortfolioAnnouncement />
       <ProblemSection />
       <SolutionSection />
       <MandateInstrumentSection />

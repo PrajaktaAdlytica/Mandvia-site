@@ -3,6 +3,10 @@
   "outputDirectory": "dist/client",
   "rewrites": [
     {
+      "source": "/news/tiphub-allocation",
+      "destination": "/news/tiphub-allocation.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
