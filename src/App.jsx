@@ -219,28 +219,16 @@ function Logo({ inverse = false }) {
 function Header() {
   const [open, setOpen] = useState(false);
   const [productOpen, setProductOpen] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const location = useLocation();
   const cinematic = true;
   useEffect(() => {
     setOpen(false);
     setProductOpen(false);
   }, [location.pathname]);
-  useEffect(() => {
-    let previous = window.scrollY;
-    const handleScroll = () => {
-      const next = window.scrollY;
-      setHidden(next > previous && next > 180);
-      previous = next;
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const active = (path) => location.pathname === path ? "is-active" : "";
 
   return (
-    <header className={`site-header ${cinematic ? "site-header-cinematic" : ""} ${hidden && !open ? "is-hidden" : ""}`}>
+    <header className={`site-header ${cinematic ? "site-header-cinematic" : ""}`}>
       <Logo inverse={cinematic} />
       <button className="menu-toggle" onClick={() => setOpen((value) => !value)} aria-label="Toggle menu">
         {open ? <X size={20} /> : <Menu size={20} />}

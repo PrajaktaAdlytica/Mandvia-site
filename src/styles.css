@@ -2056,10 +2056,6 @@ select:focus {
   transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), background 220ms ease;
 }
 
-.site-header.is-hidden {
-  transform: translate(-50%, -145%);
-}
-
 .site-header nav > a,
 .site-header .nav-dropdown > button {
   position: relative;
