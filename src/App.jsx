@@ -99,7 +99,7 @@ const siteMetadata = {
 
 const announcementMetadata = {
   title: "Mandvia joins the TipHub portfolio",
-  description: "TipHub announces a $650K portfolio allocation to Mandvia, supporting its work across fintech and agent payments.",
+  description: "TipHub announces a $525K portfolio allocation to Mandvia, supporting its work across fintech and agent payments.",
   canonical: "https://www.mandvia.com/news/tiphub-allocation",
 };
 
@@ -976,7 +976,7 @@ function EditorialPage({ type }) {
 const announcementFacts = [
   ["Company", "Mandvia"],
   ["Sector", "Fintech and agent payments"],
-  ["TipHub-announced allocation", "$650K"],
+  ["TipHub-announced allocation", "$525K"],
   ["Stage", "Early stage"],
   ["Scope", "Global"],
   ["Portfolio", "TipHub"],
@@ -991,9 +991,9 @@ function TipHubAnnouncementPage() {
             <div className="announcement-hero-inner">
               <div className="announcement-hero-copy" data-reveal>
                 <span className="announcement-eyebrow">Portfolio announcement</span>
-                <h1>TipHub announces a <em>$650K allocation</em> to Mandvia.</h1>
+                <h1>TipHub announces a <em>$525K allocation</em> to Mandvia.</h1>
                 <p>
-                  Mandvia is joining the TipHub portfolio following a $650K TipHub-announced
+                  Mandvia is joining the TipHub portfolio following a $525K TipHub-announced
                   allocation. The partnership supports the company’s work across fintech and
                   agent payments.
                 </p>
@@ -1012,9 +1012,9 @@ function TipHubAnnouncementPage() {
                   </a>
                 </div>
               </div>
-              <div className="announcement-signal" aria-label="$650K TipHub-announced portfolio allocation" data-reveal>
+              <div className="announcement-signal" aria-label="$525K TipHub-announced portfolio allocation" data-reveal>
                 <div className="announcement-signal-head"><span>Portfolio signal</span><strong>TipHub</strong></div>
-                <div className="announcement-signal-value"><small>Announced allocation</small><strong>$650K</strong></div>
+                <div className="announcement-signal-value"><small>Announced allocation</small><strong>$525K</strong></div>
                 <div className="announcement-signal-rail"><span /><i /><span /></div>
                 <dl>
                   <div><dt>Category</dt><dd>Agent payments</dd></div>

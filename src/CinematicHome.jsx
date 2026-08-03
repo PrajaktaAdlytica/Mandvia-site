@@ -141,7 +141,7 @@ function PortfolioAnnouncement() {
         <div className="portfolio-announcement-copy">
           <SectionLabel>Portfolio announcement</SectionLabel>
           <h2 id="portfolio-announcement-title">
-            TipHub announces a <em>$650K allocation</em> to Mandvia.
+            TipHub announces a <em>$525K allocation</em> to Mandvia.
           </h2>
           <p>
             Mandvia is joining the TipHub portfolio as it builds payment authorization,
@@ -163,9 +163,9 @@ function PortfolioAnnouncement() {
             </a>
           </div>
         </div>
-        <div className="portfolio-allocation" aria-label="$650K TipHub-announced portfolio allocation">
+        <div className="portfolio-allocation" aria-label="$525K TipHub-announced portfolio allocation">
           <div className="portfolio-allocation-top"><span>Allocation signal</span><strong>TipHub portfolio</strong></div>
-          <div className="portfolio-allocation-value"><small>TipHub-announced allocation</small><strong>$650K</strong></div>
+          <div className="portfolio-allocation-value"><small>TipHub-announced allocation</small><strong>$525K</strong></div>
           <div className="portfolio-allocation-path" aria-hidden="true"><i /><span /><i /></div>
           <div className="portfolio-allocation-meta">
             <span>Fintech</span><span>Agent payments</span><span>Global</span>
