@@ -269,6 +269,7 @@ function Header() {
         <Link className={active("/security")} to="/security">Security</Link>
         <Link className={active("/pricing")} to="/pricing">Pricing</Link>
         <Link className={active("/company")} to="/company">Company</Link>
+        <Link className={active("/news/tiphub-allocation")} to="/news/tiphub-allocation">Announcement</Link>
         <Link className={active("/signin")} to="/signin">Sign in</Link>
         <Link className="button button-small" to="/demo">
           Request demo <ArrowUpRight size={15} />
