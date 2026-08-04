@@ -23,7 +23,11 @@ const announcementHtml = readFileSync(index, "utf8")
   .replaceAll("Mandvia — Accountable agent payments", "Mandvia joins the TipHub portfolio")
   .replaceAll(
     "Mandvia is the control and evidence layer for autonomous software spend.",
-    "TipHub announces a $525K portfolio allocation to Mandvia, supporting its work across fintech and agent payments.",
+    "On 29 July 2026, TipHub announced a $525K portfolio allocation to Mandvia, supporting its work across fintech and agent payments.",
+  )
+  .replace(
+    '<meta property="og:type" content="website" />',
+    '<meta property="og:type" content="article" />\n    <meta property="article:published_time" content="2026-07-29" />',
   )
   .replace('content="https://www.mandvia.com/"', 'content="https://www.mandvia.com/news/tiphub-allocation"')
   .replace('href="https://www.mandvia.com/"', 'href="https://www.mandvia.com/news/tiphub-allocation"');

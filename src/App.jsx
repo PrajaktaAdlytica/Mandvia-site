@@ -99,8 +99,10 @@ const siteMetadata = {
 
 const announcementMetadata = {
   title: "Mandvia joins the TipHub portfolio",
-  description: "TipHub announces a $525K portfolio allocation to Mandvia, supporting its work across fintech and agent payments.",
+  description: "On 29 July 2026, TipHub announced a $525K portfolio allocation to Mandvia, supporting its work across fintech and agent payments.",
   canonical: "https://www.mandvia.com/news/tiphub-allocation",
+  type: "article",
+  publishedTime: "2026-07-29",
 };
 
 function PageMetadata() {
@@ -125,6 +127,14 @@ function PageMetadata() {
     setMeta('meta[property="og:title"]', ["property", "og:title"], metadata.title);
     setMeta('meta[property="og:description"]', ["property", "og:description"], metadata.description);
     setMeta('meta[property="og:url"]', ["property", "og:url"], metadata.canonical);
+    setMeta('meta[property="og:type"]', ["property", "og:type"], metadata.type || "website");
+
+    const publishedTime = document.head.querySelector('meta[property="article:published_time"]');
+    if (metadata.publishedTime) {
+      setMeta('meta[property="article:published_time"]', ["property", "article:published_time"], metadata.publishedTime);
+    } else if (publishedTime) {
+      publishedTime.remove();
+    }
 
     let canonical = document.head.querySelector('link[rel="canonical"]');
     if (!canonical) {
@@ -978,6 +988,7 @@ const announcementFacts = [
   ["Company", "Mandvia"],
   ["Sector", "Fintech and agent payments"],
   ["TipHub-announced allocation", "$525K"],
+  ["Announcement date", "29 July 2026"],
   ["Stage", "Early stage"],
   ["Scope", "Global"],
   ["Portfolio", "TipHub"],
@@ -991,7 +1002,7 @@ function TipHubAnnouncementPage() {
           <header className="announcement-hero">
             <div className="announcement-hero-inner">
               <div className="announcement-hero-copy" data-reveal>
-                <span className="announcement-eyebrow">Portfolio announcement</span>
+                <span className="announcement-eyebrow">Portfolio announcement · 29 July 2026</span>
                 <h1>TipHub announces a <em>$525K allocation</em> to Mandvia.</h1>
                 <p>
                   Mandvia is joining the TipHub portfolio following a $525K TipHub-announced

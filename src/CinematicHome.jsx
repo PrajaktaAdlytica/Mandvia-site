@@ -139,7 +139,7 @@ function PortfolioAnnouncement() {
     <section className="portfolio-announcement" aria-labelledby="portfolio-announcement-title">
       <motion.div className="cinematic-container portfolio-announcement-grid" {...reveal}>
         <div className="portfolio-announcement-copy">
-          <SectionLabel>Portfolio announcement</SectionLabel>
+          <SectionLabel>Portfolio announcement · 29 July 2026</SectionLabel>
           <h2 id="portfolio-announcement-title">
             TipHub announces a <em>$525K allocation</em> to Mandvia.
           </h2>
