@@ -26,6 +26,7 @@ import {
   LockKeyhole,
   Mail,
   MapPin,
+  Phone,
   ReceiptText,
   Route,
   ShieldCheck,
@@ -906,8 +907,9 @@ function CinematicFooter() {
           <div className="cinematic-footer-brand">
             <img src="/brand/mandvia-reversed.svg" alt="Mandvia" />
             <p>Accountable payment infrastructure for autonomous software.</p>
-            <address><MapPin size={16} /><span>Warsaw, Poland<br />European Union</span></address>
+            <address><MapPin size={16} /><span>4887 Mountain Close<br />Érd, Pest 2030, Hungary</span></address>
             <a href="mailto:hello@mandvia.com"><Mail size={15} /> hello@mandvia.com</a>
+            <a href="tel:+36385793884"><Phone size={15} /> 06 38 579 3884</a>
           </div>
           <div className="cinematic-footer-column">
             <strong>Product</strong>

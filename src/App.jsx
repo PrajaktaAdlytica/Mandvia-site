@@ -26,6 +26,7 @@ import {
   Menu,
   Network,
   Orbit,
+  Phone,
   ReceiptText,
   Route,
   ScanLine,
@@ -1087,8 +1088,9 @@ function Footer() {
         <div className="footer-brand">
           <Logo inverse />
           <p>Accountable payment infrastructure for autonomous software.</p>
-          <address><MapPin size={16} /><span>Warsaw, Poland<br />European Union</span></address>
+          <address><MapPin size={16} /><span>4887 Mountain Close<br />Érd, Pest 2030, Hungary</span></address>
           <a className="footer-email" href="mailto:hello@mandvia.com"><Mail size={15} /> hello@mandvia.com</a>
+          <a className="footer-email" href="tel:+36385793884"><Phone size={15} /> 06 38 579 3884</a>
         </div>
         <div><strong>Product</strong>{products.map((product) => <Link key={product.slug} to={`/product/${product.slug}`}>{product.name}</Link>)}</div>
         <div><strong>Company</strong><Link to="/company">About</Link><Link to="/news/tiphub-allocation">Updates</Link><Link to="/security">Security</Link><Link to="/pricing">Pricing</Link><Link to="/demo">Contact</Link></div>
